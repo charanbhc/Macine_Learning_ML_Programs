@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 from sklearn.cluster import KMeans
@@ -11,19 +11,19 @@ from matplotlib import pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[10]:
+# In[2]:
 
 
 df=pd.read_csv("https://raw.githubusercontent.com/codebasics/py/master/ML/13_kmeans/income.csv")
 
 
-# In[11]:
+# In[3]:
 
 
 df.head()
 
 
-# In[12]:
+# In[4]:
 
 
 plt.scatter(df.Age,df['Income($)'])
@@ -31,7 +31,7 @@ plt.xlabel('Age')
 plt.ylabel('Income($)')
 
 
-# In[13]:
+# In[5]:
 
 
 km = KMeans(n_clusters=3)
@@ -39,20 +39,20 @@ y_predicted = km.fit_predict(df[['Age','Income($)']])
 y_predicted
 
 
-# In[14]:
+# In[6]:
 
 
 df['cluster']=y_predicted
 df.head()
 
 
-# In[15]:
+# In[7]:
 
 
 km.cluster_centers_
 
 
-# In[16]:
+# In[8]:
 
 
 df1 = df[df.cluster==0]
@@ -67,7 +67,7 @@ plt.ylabel('Income ($)')
 plt.legend()
 
 
-# In[17]:
+# In[9]:
 
 
 scaler = MinMaxScaler()
@@ -79,19 +79,19 @@ scaler.fit(df[['Age']])
 df['Age'] = scaler.transform(df[['Age']])
 
 
-# In[18]:
+# In[10]:
 
 
 df.head()
 
 
-# In[19]:
+# In[11]:
 
 
 plt.scatter(df.Age,df['Income($)'])
 
 
-# In[20]:
+# In[12]:
 
 
 km = KMeans(n_clusters=3)
@@ -99,20 +99,20 @@ y_predicted = km.fit_predict(df[['Age','Income($)']])
 y_predicted
 
 
-# In[21]:
+# In[13]:
 
 
 df['cluster']=y_predicted
 df.head()
 
 
-# In[22]:
+# In[14]:
 
 
 km.cluster_centers_
 
 
-# In[23]:
+# In[15]:
 
 
 df1 = df[df.cluster==0]
@@ -125,7 +125,7 @@ plt.scatter(km.cluster_centers_[:,0],km.cluster_centers_[:,1],color='purple',mar
 plt.legend()
 
 
-# In[24]:
+# In[16]:
 
 
 sse = []
@@ -136,7 +136,7 @@ for k in k_rng:
     sse.append(km.inertia_)
 
 
-# In[25]:
+# In[17]:
 
 
 plt.xlabel('K')
@@ -144,7 +144,7 @@ plt.ylabel('Sum of squared error')
 plt.plot(k_rng,sse)
 
 
-# In[ ]:
+
 
 
 
