@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # In[1]:
-# Food Recipe blog store :  Future ready talent project by B. Haricharan Reddy
+
 
 
 from sklearn.cluster import KMeans
